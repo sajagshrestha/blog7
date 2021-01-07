@@ -1,5 +1,12 @@
+import { ThemeProvider } from "styled-components";
+import { darkTheme } from "./Theme/theme";
+
 const App = () => {
-	return <div>BLOG7 a simple MERN blog app</div>;
+	return (
+		<ThemeProvider theme={darkTheme}>
+			<h1>Helo world!</h1>
+		</ThemeProvider>
+	);
 };
 
 export default App;
