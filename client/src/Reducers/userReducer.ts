@@ -6,9 +6,11 @@ const initialState = {
 	name: "",
 	isLoggedIn: false,
 };
-type Action = { type: "LOGIN" | "LOGOUT"; payload: string };
+export type UserAction =
+	| { type: "LOGIN"; payload: string }
+	| { type: "LOGOUT" };
 
-const userReducer = (state: UserState = initialState, action: Action) => {
+const userReducer = (state: UserState = initialState, action: UserAction) => {
 	switch (action.type) {
 		case "LOGIN":
 			return { ...state, name: action.payload, isLoggedIn: true };
