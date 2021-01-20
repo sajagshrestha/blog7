@@ -17,7 +17,6 @@ export const register = async (req: Request, res: Response) => {
 	if (emailExists) return res.status(400).send("email already exists");
 
 	//hash password
-
 	const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
 	//create user
@@ -28,8 +27,7 @@ export const register = async (req: Request, res: Response) => {
 	});
 	try {
 		const savedUser = await user.save();
-		// res.status(200).send(`${savedUser.name}'s account has been created`);
-		res.send(savedUser);
+		res.status(200).send(`${savedUser.name}'s account has been created`);
 	} catch (err) {
 		res.send(err);
 	}

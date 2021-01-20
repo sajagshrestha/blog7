@@ -17,3 +17,13 @@ export const loginValidator = (data: Request) => {
 	});
 	return schema.validate(data.body);
 };
+
+export const blogValidator = (data:Request) =>{
+	const schema = Joi.object({
+		title: Joi.string().min(10).required(),
+		subtitle:Joi.string().min(20),
+		body: Joi.string().min(20).required(),
+		author: Joi.string().required(),
+	})
+	return schema.validate(data.body);
+}
