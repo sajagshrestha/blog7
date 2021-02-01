@@ -1,8 +1,8 @@
 import express, { Application } from "express";
 import authRouter from "./src/routes/auth";
-import privateRouter from "./src/routes/private";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import blogRouter from "./src/routes/blog";
 
 //config .env
 dotenv.config();
@@ -23,6 +23,6 @@ app.use(express.json());
 
 //midllewares
 app.use("/auth", authRouter);
-app.use("/blog", privateRouter);
+app.use("/blog", blogRouter);
 //start server at PORT
 app.listen(PORT, () => console.log("server is running"));
