@@ -1,24 +1,16 @@
+import { useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import Navbar from "./Components/Navbar/Navbar";
 import { GlobalStyle, darkTheme } from "./GlobalStyles";
-import { useReduxDispatch, useReduxSelector } from "./Reducers";
+import useDarkMode from "./CustomHooks/useDarkMode";
 
 const App = () => {
-	const user = useReduxSelector((state) => state.user);
-	const dispatch = useReduxDispatch();
-	const login = () => {
-		dispatch({ type: "LOGIN", payload: "sj007" });
-	};
-	const logout = () => {
-		dispatch({ type: "LOGOUT" });
-	};
+	const [theme, toggleTheme] = useDarkMode();
+	useEffect(() => {}, []);
 	return (
 		<ThemeProvider theme={darkTheme}>
 			<GlobalStyle />
 			<Navbar />
-			<h1>Hello {user.isLoggedIn ? user.name : "sjout"}!</h1>
-			<button onClick={login}>Login</button>
-			<button onClick={logout}>Logout</button>
 		</ThemeProvider>
 	);
 };

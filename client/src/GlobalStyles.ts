@@ -15,8 +15,14 @@ const commonTheme = {
 
 export const darkTheme: DefaultTheme = {
 	...commonTheme,
-	primaryBackgroundColor: "black",
-	secondaryBackgroundColor: "grey",
+	primaryBackgroundColor: "#1F201C",
+	secondaryBackgroundColor: "#272824",
+};
+
+export const lightTheme: DefaultTheme = {
+	...commonTheme,
+	primaryBackgroundColor: "#EEF0F1",
+	secondaryBackgroundColor: "#FFFFFF",
 };
 
 export const GlobalStyle = createGlobalStyle`
